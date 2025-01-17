@@ -197,6 +197,8 @@ namespace http {
   download_file(const std::string &url, const std::string &file) {
     CURL *curl = curl_easy_init();
     if (curl) {
+      curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+
       std::string file_dir = file_handler::get_parent_directory(file);
       if (!file_handler::make_directory(file_dir)) {
         BOOST_LOG(error) << "Couldn't create directory ["sv << file_dir << ']';
