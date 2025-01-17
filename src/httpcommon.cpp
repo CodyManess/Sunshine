@@ -214,7 +214,6 @@ namespace http {
       curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
       curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, fwrite);
       curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-      curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
 
       CURLcode result = curl_easy_perform(curl);
       if (result != CURLE_OK) {
